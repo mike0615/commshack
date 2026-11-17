@@ -1,6 +1,7 @@
-# Keepalived for HAProxy VIP (unicast for cross-subnet)
+# Keepalived for an HAProxy VIP within a routed/reachable local failover domain.
+# Unicast transport does not make a shared VIP routable across arbitrary subnets.
 # SECURITY: rotate auth_pass before production. Do NOT commit real secrets.
-# Generate with: openssl rand -base64 16
+# VRRP PASS uses only 8 characters and is not encryption; restrict peers/firewall.
 global_defs {
     router_id haproxy1
 }

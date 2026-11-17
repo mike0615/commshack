@@ -1,3 +1,5 @@
+> Historical site-planning reference. Read INSTALL.md and CODE_REVIEW.md for the current integration release. This plan is not a tested deployment.
+
 # SMTP GSSAPI Workaround for Roundcube
 
 Upstream Roundcube's `krb_authentication` plugin supports IMAP GSSAPI but SMTP GSSAPI is incomplete. Sending mail via Kerberos often fails with auth errors.

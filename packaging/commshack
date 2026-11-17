@@ -1,0 +1,2 @@
+#!/bin/bash
+exec bash /usr/share/commshack/scripts/deploy.sh "$@"

@@ -1,4 +1,4 @@
--- Prosody config for LiveWire Portal
+-- Prosody config for CommShack
 -- Enable Cyrus SASL for Kerberos or LDAP
 -- Working zone: acc.local (portal.acc.local / xmpp.acc.local / mail.acc.local)
 
@@ -25,3 +25,4 @@ https_ports = { 5281 }
 -- MUC rooms
 Component "muc.xmpp.acc.local" "muc"
     modules_enabled = { "muc_mam" }
+

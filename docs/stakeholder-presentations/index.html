@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LiveWire Portal — Stakeholder Presentations</title>
+<title>CommShack — Stakeholder Presentations</title>
 <style>
   :root {
     --bg: #0f172a;
@@ -75,7 +75,7 @@
 </head>
 <body>
 <header>
-  <h1>LiveWire Portal</h1>
+  <h1>CommShack</h1>
   <p>The single one-place-to-go location for all your tools and applications. WordPress front-end with Kerberos SSO, embedded chat, file sharing, webmail, and multi-site high availability.</p>
 </header>
 
@@ -91,7 +91,7 @@
     <h2>Executive Summary</h2>
     <div class="card">
       <p><strong>The problem:</strong> Teams bounce between separate portals, chat, mail, file shares, and tool links. That fragmentation slows work, weakens security posture, and makes multi-site operations fragile.</p>
-      <p><strong>The answer:</strong> LiveWire Portal is one unified front door. Everything your people need — SSO, chat, files, webmail, and deep links to every internal tool — lives behind a single, themed, authenticated experience.</p>
+      <p><strong>The answer:</strong> CommShack is one unified front door. Everything your people need — SSO, chat, files, webmail, and deep links to every internal tool — lives behind a single, themed, authenticated experience.</p>
     </div>
     <h3>Why it matters</h3>
     <ul>
@@ -141,14 +141,14 @@
     </div>
     <h3>Stack</h3>
     <ul>
-      <li>Front-end: WordPress + livewire-child theme</li>
+      <li>Front-end: WordPress + commshack-child theme</li>
       <li>Auth: Apache mod_auth_kerb / SPNEGO against FreeIPA or AD</li>
       <li>Chat: Converse.js (client) + Prosody (XMPP server)</li>
       <li>Mail: Roundcube embed</li>
       <li>Files: portal-native sharing</li>
       <li>HA: HAProxy + Keepalived across three sites</li>
       <li>Hypervisor: XCP-ng pool with Xen Orchestra</li>
-      <li>Custom: livewire-shortcodes plugin</li>
+      <li>Custom: commshack-shortcodes plugin</li>
     </ul>
     <h3>Deployment</h3>
     <ul>
@@ -159,13 +159,13 @@
     </ul>
     <h3>Repo layout</h3>
     <div class="card">
-      <p><code>docs/</code> architecture &amp; plans &middot; <code>configs/</code> &middot; <code>themes/livewire-child/</code> &middot; <code>plugins/livewire-shortcodes/</code> &middot; <code>scripts/</code></p>
+      <p><code>docs/</code> architecture &amp; plans &middot; <code>configs/</code> &middot; <code>themes/commshack-child/</code> &middot; <code>plugins/commshack-shortcodes/</code> &middot; <code>scripts/</code></p>
     </div>
   </section>
 </main>
 
 <footer>
-  LiveWire Portal stakeholder deck &middot; Source: <a href="https://github.com/mike0615/livewire-portal">github.com/mike0615/livewire-portal</a>
+  CommShack stakeholder deck &middot; Source: <a href="https://github.com/mike0615/commshack">github.com/mike0615/commshack</a>
 </footer>
 
 <script>

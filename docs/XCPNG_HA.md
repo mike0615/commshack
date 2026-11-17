@@ -1,3 +1,5 @@
+> Historical site-planning reference. Read INSTALL.md and CODE_REVIEW.md for the current integration release. This plan is not a tested deployment.
+
 # XCP-ng Multi-Site HA & Failover
 
 ## Per-Site Pool

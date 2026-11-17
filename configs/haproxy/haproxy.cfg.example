@@ -1,4 +1,4 @@
-# HAProxy config for LiveWire Portal
+# HAProxy config for CommShack
 # NOTE: Replace backend IPs and cert path for your sites.
 # Health check uses /healthz — serve a lightweight 200 from Apache/WP (not /wp-login.php).
 global
@@ -29,11 +29,14 @@ backend wordpress_backends
     # Do NOT use /wp-login.php — Kerberos/SSO makes checks flaky and violates go-live §6.
     option httpchk GET /healthz
     http-check expect status 200
-    server wp1 10.1.1.20:80 check
-    server wp2 10.1.1.21:80 check
-    server wp3 10.2.1.20:80 check backup
+    # Provision the site CA and backend certificate for portal.acc.local first.
+    server wp1 10.1.1.20:443 ssl verify required ca-file /etc/pki/tls/certs/site-ca.pem verifyhost portal.acc.local sni str(portal.acc.local) check
+    server wp2 10.1.1.21:443 ssl verify required ca-file /etc/pki/tls/certs/site-ca.pem verifyhost portal.acc.local sni str(portal.acc.local) check
+    server wp3 10.2.1.20:443 ssl verify required ca-file /etc/pki/tls/certs/site-ca.pem verifyhost portal.acc.local sni str(portal.acc.local) check backup
 
 backend xmpp_bosh
     balance roundrobin
-    server xmpp1 10.1.1.30:5280 check
-    server xmpp2 10.1.1.31:5280 check
+    # Configure hostname, SNI and CA trust for your actual XMPP HTTPS backend.
+    server xmpp1 10.1.1.30:5281 ssl verify required ca-file /etc/pki/tls/certs/site-ca.pem verifyhost xmpp.acc.local sni str(xmpp.acc.local) check
+    server xmpp2 10.1.1.31:5281 ssl verify required ca-file /etc/pki/tls/certs/site-ca.pem verifyhost xmpp.acc.local sni str(xmpp.acc.local) check
+

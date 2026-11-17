@@ -1,4 +1,6 @@
-# LiveWire Portal - Installation & Configuration Plan
+> Historical site-planning reference. Read INSTALL.md and CODE_REVIEW.md for the current integration release. This plan is not a tested deployment.
+
+# CommShack - Installation & Configuration Plan
 
 Start tomorrow. Pull this repo, then follow phases in order.
 
@@ -31,7 +33,7 @@ Start tomorrow. Pull this repo, then follow phases in order.
 
 ## Phase 2: WordPress Core + Theme (Day 1-2)
 1. Install WordPress (single site or multisite if needed).
-2. Install child theme `themes/livewire-child` (copy from repo).
+2. Install child theme `themes/commshack-child` (copy from repo).
 3. Set colors, logo, fonts to match brand.
 4. Create dashboard page with shortcodes for:
    - Tool links (cards)

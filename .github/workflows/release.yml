@@ -1,0 +1,42 @@
+name: Publish CommShack release
+on:
+  push:
+    branches: [commshack-release]
+permissions:
+  contents: write
+concurrency:
+  group: commshack-release
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        rocky: [9, 10]
+    steps:
+      - uses: actions/checkout@v4
+      - run: CONTAINER_ENGINE=docker bash build.sh ${{ matrix.rocky }}
+      - run: CONTAINER_ENGINE=docker bash packaging/test-offline.sh ${{ matrix.rocky }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: commshack-el${{ matrix.rocky }}
+          path: releases/1.2.0/
+  publish:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: commshack-el*
+          path: releases/1.2.0/
+          merge-multiple: true
+      - name: Combine checksums
+        run: |
+          cd releases/1.2.0
+          sha256sum ./*.rpm ./*.tar.gz ./*.zip > SHA256SUMS
+      - name: Publish verified release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create v1.2.0 --target "${{ github.sha }}" --title 'CommShack 1.2.0' --notes-file RELEASE_NOTES.md releases/1.2.0/*.rpm releases/1.2.0/*.tar.gz releases/1.2.0/*.zip releases/1.2.0/SHA256SUMS
