@@ -1,4 +1,6 @@
-# LiveWire Portal — Go-Live Checklist
+> Historical site-planning reference. Read INSTALL.md and CODE_REVIEW.md for the current integration release. This plan is not a tested deployment.
+
+# CommShack — Go-Live Checklist
 
 Single source of truth for taking the portal from repo to production. Work top to bottom. Do not skip the security items.
 
@@ -39,10 +41,10 @@ Single source of truth for taking the portal from repo to production. Work top t
 - [ ] Hardened config applied: `GssapiCredStore`, `GssapiLocalName On`, `GssapiSSLonly On`, `GssapiNegotiateOnce On`, `Require valid-user`.
 - [ ] TLS cert installed (Let's Encrypt or internal CA) and referenced in HAProxy.
 - [ ] WordPress installed (single site is fine to start).
-- [ ] Child theme `livewire-child` activated; brand colors/logo set in `style.css`.
+- [ ] Child theme `commshack-child` activated; brand colors/logo set in `style.css`.
 - [ ] **LDAP Login for Intranet Sites** plugin installed + Kerberos/NTLM add-on.
 - [ ] LDAP groups mapped to WP roles.
-- [ ] Custom `livewire-shortcodes` plugin installed; dashboard shortcode renders real tool cards from `tools.json` (data-driven).
+- [ ] Custom `commshack-shortcodes` plugin installed; dashboard shortcode renders real tool cards from `tools.json` (data-driven).
 - [ ] Local admin fallback account created and password stored in a password manager (in case SSO breaks).
 - [ ] Test: domain-joined browser hits portal → silent SSO → lands on dashboard. Non-domain browser gets a clean failure, not a password prompt.
 
@@ -157,7 +159,8 @@ Single source of truth for taking the portal from repo to production. Work top t
 
 ### Closed in repo (verify on servers at cutover)
 
-- ~~Dashboard placeholder-driven~~ — `plugins/livewire-shortcodes/tools.json` is data-driven.
+- ~~Dashboard placeholder-driven~~ — `plugins/commshack-shortcodes/tools.json` is data-driven.
 - ~~Deploy script swallowed errors~~ — `scripts/deploy.sh` uses `set -euo pipefail`, per-service steps, configtests, and refuses to overwrite live Keepalived/HAProxy by default.
 - ~~No Galera total-outage runbook~~ — see `docs/GALERA_BOOTSTRAP.md`.
 - ~~HAProxy httpchk on `/wp-login.php`~~ — example now uses `/healthz`.
+

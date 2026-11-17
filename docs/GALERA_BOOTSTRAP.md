@@ -1,3 +1,5 @@
+> Historical site-planning reference. Read INSTALL.md and CODE_REVIEW.md for the current integration release. This plan is not a tested deployment.
+
 # Galera Bootstrap Runbook
 
 Use this when the Galera cluster is down or after a total outage. Goal: get a clean, quorate cluster back without split-brain.
