@@ -7,6 +7,8 @@ Includes an authenticated dashboard, HTTPS chat/mail embeds, file-plugin adapter
 child theme, embedded Help/About, deployment templates and documentation.
 Existing livewire_* shortcodes and URL configuration remain compatible.
 
+**Who it's for:** WordPress administrators who want an authenticated communications portal with chat and mail embeds.
+
 ## Install and releases
 
 Use the Rocky 9/10 integration RPM or matching offline archive from
@@ -45,3 +47,7 @@ installation on standard Rocky 9/10 requires no network downloads. Run
 Plugin harness tests exercise WordPress API boundaries; they do not establish
 production SSO, mail/chat, third-party plugin behavior or cross-site failover.
 Application RPMs are unsigned. Authenticate release media and checksum manifests.
+
+---
+
+**Part of the Cyber Chief toolkit** by Anderson Computer. Sibling projects: [Flagship](https://github.com/mike0615/flagship) · [Flagship Web](https://github.com/mike0615/flagship-web) · [Porthole](https://github.com/mike0615/porthole) · [Skiff](https://github.com/mike0615/skiff) · [Sonar](https://github.com/mike0615/sonar) · [Helm RDP](https://github.com/mike0615/helm-rdp) · [Pathfinder](https://github.com/mike0615/pathfinder) · [FleetOps](https://github.com/mike0615/fleet-ops) · [Dockyard](https://github.com/mike0615/dockyard).
